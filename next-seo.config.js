@@ -6,14 +6,14 @@ export default {
     titleTemplate:`%s - ${title}`,
     defaultTitle: title,
     openGraph: {
-      type: 'next-website-starter',
-      locale: 'pl-PL',
-      url: 'https://www.example.com/',
-      site_name: 'SiteName',
+      type: 'website',
+      locale: 'en_US',
+      url: 'https://k1eu.dev/',
+      site_name: 'k1eu.dev',
     },
     twitter: {
-      handle: '@handle',
-      site: '@site',
+      handle: '@k1eu',
+      site: '@k1eu',
       cardType: 'summary_large_image',
     },
   };

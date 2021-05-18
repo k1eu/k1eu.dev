@@ -1,3 +1,50 @@
+$bg-primary : #2E3440;
+$highlight: #88C0D0;
 .construction {
-    font-size: 10rem;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: $bg-primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lottiee {
+  width: 100%;
+}
+
+.contact {
+  color: #ECEFF4;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  h2 {
+      font-size: 1.3rem;
+  }
+  h3 {
+      margin-top: 2rem;
+      p {
+        :hover {
+            color:$highlight;
+        }
+      }
+  }
+}
+@media (min-width: 992px){
+    .contact {
+        h1 {
+            font-size:3rem;
+        }
+        h2 {
+            font-size:2rem;
+        }
+        h3 {
+            margin-top:5rem;
+            font-size:1.5rem;
+        }
+    }
 }

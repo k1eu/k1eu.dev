@@ -4,9 +4,9 @@ import React from "react";
 
 export const Home = () => {
   return (
-    <Layout>
+    <main>
       <Construction/>
-    </Layout>
+    </main>
   );
 };
 

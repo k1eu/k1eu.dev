@@ -1,6 +1,6 @@
 {
-  "name": "next-website-starter",
-  "version": "0.1.0",
+  "name": "k1eu.dev",
+  "version": "0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,7 @@
     "classnames": "^2.2.6",
     "config": "^3.3.6",
     "date-fns": "^2.21.1",
+    "lottie-react": "^2.1.0",
     "next": "latest",
     "next-compose-plugins": "^2.2.1",
     "next-images": "^1.7.0",
