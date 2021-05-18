@@ -9,5 +9,5 @@ module.exports = withPlugins([
   
   serverRuntimeConfig: { ...config, ...secretConfig },
   publicRuntimeConfig: config,
-  
+  target: 'serverless'
 });
