@@ -10,7 +10,7 @@ const Construction = () => {
         <h1>k1eu.dev</h1>
         <h2>is under construction!</h2>
         <h3>
-          <p>Contact me at </p>
+          <p>You can find || contact me here:</p>
           <Share/>
         </h3>
       </div>

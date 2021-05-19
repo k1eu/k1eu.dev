@@ -1,12 +1,15 @@
-@import '../Construction/construction.module.scss';
+@import "../Construction/construction.module.scss";
 .row {
-    display: inline-flex;
+  display: inline-flex;
 
-    > * + * {
-        margin-left:1.5rem;
+  > * + * {
+    margin-left: 1.5rem;
+  }
+  * {
+    font-size: 1.5rem;
+    :hover {
+      color: $highlight;
+      cursor: pointer;
     }
-    *:hover {
-        color: $highlight;
-        cursor: pointer;
-    }
+  }
 }
