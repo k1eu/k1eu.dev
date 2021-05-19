@@ -1,0 +1,12 @@
+@import '../Construction/construction.module.scss';
+.row {
+    display: inline-flex;
+
+    > * + * {
+        margin-left:1.5rem;
+    }
+    *:hover {
+        color: $highlight;
+        cursor: pointer;
+    }
+}

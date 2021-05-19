@@ -1,6 +1,7 @@
-import { construction, lottiee, contact } from "./construction.module.scss";
+import { construction, contact } from "./construction.module.scss";
 import Lottie from "lottie-react";
 import animation from "public/construction.json";
+import Share from "components/Share/Share";
 const Construction = () => {
   return (
     <div className={construction}>
@@ -10,11 +11,7 @@ const Construction = () => {
         <h2>is under construction!</h2>
         <h3>
           <p>Contact me at </p>
-          <p>
-            <a href="mailto:k1eu.developer@gmail.com">
-              k1eu.developer@gmail.com
-            </a>
-          </p>
+          <Share/>
         </h3>
       </div>
     </div>

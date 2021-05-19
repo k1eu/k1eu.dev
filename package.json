@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "classnames": "^2.2.6",
     "config": "^3.3.6",
     "date-fns": "^2.21.1",
