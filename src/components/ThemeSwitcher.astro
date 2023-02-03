@@ -1,0 +1,24 @@
+---
+---
+
+<script>
+  type LocalStorageTheme = "light" | "dark" | undefined;
+  type ThemeConfig = [toAdd: string, toRemove: string];
+
+  const switchTheme = () => {
+    const theme = localStorage.theme as LocalStorageTheme;
+    const newTheme: ThemeConfig =
+        theme === "dark" ? ["light", "dark"] : ["dark", "light"];
+      localStorage.setItem("theme", newTheme[0]);
+      document.documentElement.classList.add(newTheme[0]);
+      document.documentElement.classList.remove(newTheme[1]);
+  };
+
+  document
+    .getElementById("theme-switcher")!
+    .addEventListener("click", switchTheme);
+</script>
+
+<section>
+  <button id="theme-switcher">mode</button>
+</section>

@@ -1,0 +1,30 @@
+---
+---
+
+<!-- THEME CUSTOMIZATION -->
+<script is:inline>
+  if (!localStorage.theme) {
+    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.documentElement.classList.add(theme);
+    localStorage.theme = theme;
+  } else {
+    document.documentElement.classList.add(localStorage.theme);
+  }
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      console.log('test')
+      const newColorScheme = event.matches ? "dark" : "light";
+      const prevColorScheme = localStorage.getItem('theme')
+      console.log({newColorScheme, prevColorScheme})
+
+      if(newColorScheme === prevColorScheme) return;
+
+      localStorage.setItem('theme', newColorScheme) 
+      document.documentElement.classList.remove(prevColorScheme);
+      document.documentElement.classList.add(newColorScheme);
+    });
+</script>

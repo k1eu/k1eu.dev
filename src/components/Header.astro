@@ -1,5 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 import { SITE_LOGOTYPE } from "../consts";
 
 const GITHUB_URL = "https://github.com/k1eu";
@@ -18,5 +19,6 @@ const TWITTER_URL = "https://twitter.com/k1euu";
       <HeaderLink href={TWITTER_URL} target="_blank">Twitter</HeaderLink>
       <HeaderLink href={GITHUB_URL} target="_blank">GitHub</HeaderLink>
     </nav>
+    <ThemeSwitcher />
   </section>
 </header>
