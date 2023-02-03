@@ -1,13 +1,12 @@
 ---
+import Link from "./Link.astro";
+
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+<footer class="mt-6 text-center">
+  <div>
+    &copy; 2021-{today.getFullYear()} by k1eu. All rights reserved.
+  </div>
+	<div>Made with ♥️ using <Link href="https://astro.build/" target="_blank">Astro</Link></div>
 </footer>
-<style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
-</style>
