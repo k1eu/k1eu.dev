@@ -5,19 +5,29 @@ import { SITE_LOGOTYPE } from "../consts";
 
 const GITHUB_URL = "https://github.com/k1eu";
 const TWITTER_URL = "https://twitter.com/k1euu";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: TWITTER_URL, label: "Twitter", target: "_blank" },
+  { href: GITHUB_URL, label: "GitHub", target: "_blank" },
+];
 ---
 
 <header class="flex flex-col sm:flex-row justify-between items-center">
-  <h1>
-    {SITE_LOGOTYPE}
+  <h1 class="text-3xl font-bold first-letter:text-purple-400">
+    <a href="/">
+      {SITE_LOGOTYPE}
+    </a>
   </h1>
   <section class="flex gap-2">
     <nav class="flex gap-2">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href={TWITTER_URL} target="_blank">Twitter</HeaderLink>
-      <HeaderLink href={GITHUB_URL} target="_blank">GitHub</HeaderLink>
+      {
+        links.map(({ label, ...link }) => (
+          <HeaderLink {...link}>{label}</HeaderLink>
+        ))
+      }
     </nav>
     <ThemeSwitcher />
   </section>
