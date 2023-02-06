@@ -16,7 +16,7 @@ const posts = (await getCollection("blog")).sort(
           posts.map((post) => (
             <li class="flex">
               <time
-                class="flex-grow-0 flex-shrink-0 basis-32 text-gray-600 italic"
+                class="flex-grow-0 flex-shrink-0 basis-32 text-gray-700 dark:text-gray-200 italic"
                 datetime={post.data.pubDate.toISOString()}
               >
                 {post.data.pubDate.toLocaleDateString("en-us", {
@@ -25,7 +25,10 @@ const posts = (await getCollection("blog")).sort(
                   day: "numeric",
                 })}
               </time>
-              <a class="visited:text-purple-400" href={`/blog/${post.slug}/`}>
+              <a
+                class="inline-block underline visited:text-yellow-600 dark:visited:text-yellow-400"
+                href={`/blog/${post.slug}/`}
+              >
                 {post.data.title}
               </a>
             </li>

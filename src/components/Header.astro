@@ -1,7 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import LogoType from "./LogoType.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
-import { SITE_LOGOTYPE } from "../consts";
 
 const GITHUB_URL = "https://github.com/k1eu";
 const TWITTER_URL = "https://twitter.com/k1euu";
@@ -16,11 +16,7 @@ const links = [
 ---
 
 <header class="flex flex-col sm:flex-row justify-between items-center">
-  <h1 class="text-3xl font-bold first-letter:text-purple-400">
-    <a href="/">
-      {SITE_LOGOTYPE}
-    </a>
-  </h1>
+  <LogoType />
   <section class="flex gap-2">
     <nav class="flex gap-2">
       {

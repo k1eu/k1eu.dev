@@ -2,5 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = "k1eu.dev";
-export const SITE_LOGOTYPE = "k1eu.dev";
 export const SITE_DESCRIPTION = "Developer's blog";
