@@ -1,0 +1,35 @@
+---
+import Github from "./icons/Github.astro";
+import Twitter from "./icons/Twitter.astro";
+import Linkedin from "./icons/Linkedin.astro";
+
+const socials = [
+  {
+    name: "Github",
+    Icon: Github,
+    href: "https://github.com/k1eu",
+  },
+  {
+    name: "Twitter",
+    Icon: Twitter,
+    href: "https://twitter.com/k1euu",
+  },
+  {
+    name: "LinkedIn",
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/in/k1eu",
+  },
+];
+---
+
+<ul class="flex items-center justify-center gap-4 mt-2 space-y-2">
+  {
+    socials.map(({ href, Icon }) => (
+      <li>
+        <a href={href} target="_blank">
+          <Icon />
+        </a>
+      </li>
+    ))
+  }
+</ul>
