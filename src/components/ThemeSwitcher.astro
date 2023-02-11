@@ -1,17 +1,34 @@
 ---
+import Moon from "./icons/Moon.astro";
+import Sun from "./icons/Sun.astro";
 ---
 
 <script>
   type LocalStorageTheme = "light" | "dark" | undefined;
   type ThemeConfig = [toAdd: string, toRemove: string];
 
+  const switchIcon = (theme: LocalStorageTheme) => {
+    const moonIcon = document.getElementById("theme-moon")!;
+    const sunIcon = document.getElementById("theme-sun")!;
+
+    if (theme === "dark") {
+      moonIcon.style.display = "inline-block";
+      sunIcon.style.display = "none";
+    } else {
+      sunIcon.style.display = "inline-block";
+      moonIcon.style.display = "none";
+    }
+  };
+
   const switchTheme = () => {
     const theme = localStorage.theme as LocalStorageTheme;
     const newTheme: ThemeConfig =
-        theme === "dark" ? ["light", "dark"] : ["dark", "light"];
-      localStorage.setItem("theme", newTheme[0]);
-      document.documentElement.classList.add(newTheme[0]);
-      document.documentElement.classList.remove(newTheme[1]);
+      theme === "dark" ? ["light", "dark"] : ["dark", "light"];
+    localStorage.setItem("theme", newTheme[0]);
+    document.documentElement.classList.add(newTheme[0]);
+    document.documentElement.classList.remove(newTheme[1]);
+
+    switchIcon(newTheme[0] as LocalStorageTheme);
   };
 
   document
@@ -19,6 +36,7 @@
     .addEventListener("click", switchTheme);
 </script>
 
-<section>
-  <button id="theme-switcher">mode</button>
-</section>
+<button class="flex items-center justify-center" id="theme-switcher">
+  <Moon />
+  <Sun />
+</button>
