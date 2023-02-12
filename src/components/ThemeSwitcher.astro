@@ -36,7 +36,10 @@ import Sun from "./icons/Sun.astro";
     .addEventListener("click", switchTheme);
 </script>
 
-<button class="flex items-center justify-center" id="theme-switcher">
+<button
+  class="flex items-center justify-center rounded-sm px-2 py-1 outline-none focus-visible:outline-gray-100"
+  id="theme-switcher"
+>
   <Moon />
   <Sun />
 </button>

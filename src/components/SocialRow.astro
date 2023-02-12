@@ -22,11 +22,11 @@ const socials = [
 ];
 ---
 
-<ul class="flex items-center justify-center gap-4 mt-2 space-y-2">
+<ul class="mt-2 flex items-center justify-center gap-4 space-y-2">
   {
     socials.map(({ href, Icon }) => (
       <li>
-        <a href={href} target="_blank">
+        <a class="outline-gray-100" href={href} target="_blank">
           <Icon />
         </a>
       </li>
