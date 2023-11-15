@@ -7,15 +7,32 @@ import "../styles/markdown.css";
 
 type Props = CollectionEntry<"blog">["data"];
 
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+} as const;
+
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <PageLayout title={title} description={description}>
   <main class="mt-6">
     <article class="markdown-body">
-      {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-      <h1 class="title px-2">{title}</h1>
-      {pubDate && <time class="px-2">{pubDate}</time>}
+      {
+        heroImage && (
+          <img
+            class="object-none"
+            width={720}
+            height={360}
+            src={heroImage}
+            alt=""
+          />
+        )
+      }
+      <!-- <h1 class="title px-2">{title}</h1> -->
+      {pubDate && <time class="mt-2 block px-2">{pubDate.toLocaleDateString("en-US", options)}</time>}
       {
         updatedDate && (
           <div>
