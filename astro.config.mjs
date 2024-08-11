@@ -7,4 +7,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://k1eu.dev",
   integrations: [tailwind(), sitemap()],
+  trailingSlash: "never"
 });

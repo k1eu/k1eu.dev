@@ -9,7 +9,7 @@ export interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = Astro.url.pathname !== '/' ? new URL(  Astro.url.pathname, Astro.site): 'https://k1eu.dev';  
 
 const { title, description, image = "/social-og.jpg" } = Astro.props;
 ---
