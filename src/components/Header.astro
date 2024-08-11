@@ -1,0 +1,26 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import LogoType from "./LogoType.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "https://tomekkielar00.myportfolio.com", label: "Photos ⧉"},
+];
+---
+
+<header class="flex flex-col items-center justify-between gap-2 sm:flex-row">
+  <LogoType />
+  <section class="flex gap-4">
+    <nav class="flex gap-4" transition:animate="none">
+      {
+        links.map(({ label, ...link }) => (
+          <HeaderLink {...link}>{label}</HeaderLink>
+        ))
+      }
+    </nav>
+    <ThemeSwitcher />
+  </section>
+</header>

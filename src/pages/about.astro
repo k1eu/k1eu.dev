@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import PageLayout from "../components/PageLayout.astro";
+import image from "../modules/about/kielar.jpg";
+import Age from "../modules/about/age.astro";
+---
+
+<PageLayout
+  title="About | k1eu.dev"
+  description="I'm Tomasz Kielar, a full stack developer, gamer and photographer. Big carhead also."
+>
+  <main class="mt-4 flex flex-col items-center text-center">
+    <h1>About me</h1>
+    <img src={image.src} alt="kielar" class="mt-4 h-96 w-96 max-w-sm rounded-md object-cover" />
+    <section class="text-sm">
+      <p class="mt-4">
+        Hi, I'm <b>Tomasz Kielar</b>. Mostly known as <b>k1eu</b>(q). <br /> I'm <Age /> years old and I'm situated
+        in Poland 🇵🇱
+      </p>
+      <p class="mt-4">
+        You already know the dev stuff about me since it's on the main page. Outside of that I've been a passionate
+        gamer since I was a kid. I used to play a lot of Mario with my mom when I was probably like 3 or 4 yrs old. We
+        also played a lot of other games together like Harry Potter or Need for Speed Underground 2.
+      </p>
+      <p class="mt-4">
+        The latter also sparked my interest in cars and I've been a car enthusiast since then. I love to drive and
+        currently I own a 2018 BMW 330e. Previously I owned a 2000 Audi TT.
+      </p>
+    </section>
+  </main>
+</PageLayout>
