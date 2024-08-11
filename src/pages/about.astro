@@ -11,7 +11,7 @@ import Age from "../modules/about/age.astro";
 >
   <main class="mt-4 flex flex-col items-center text-center">
     <h1>About me</h1>
-    <img src={image.src} alt="kielar" class="mt-4 h-96 w-96 max-w-sm rounded-md object-cover" />
+    <Image loading={'eager'} src={image} alt="kielar" class="mt-4 h-96 w-96 max-w-sm rounded-md object-cover" />
     <section class="text-sm">
       <p class="mt-4">
         Hi, I'm <b>Tomasz Kielar</b>. Mostly known as <b>k1eu</b>(q). <br /> I'm <Age /> years old and I'm situated
