@@ -1,0 +1,24 @@
+---
+import Link from "../components/Link.astro";
+import Logo from "../components/Logo.astro";
+import PageLayout from "../components/PageLayout.astro";
+import SocialRow from "../components/SocialRow.astro";
+---
+
+<PageLayout title="Tomasz Kielar | k1eu.dev">
+  <main class="mt-4 flex flex-col items-center text-center">
+    <Logo />
+    <p class="mt-4">Hi, I'm <b>Tomek</b>. Mostly known as <b>k1eu</b>(q).</p>
+    <p>
+      I'm a <b>Fullstack</b> and <b>Mobile</b> developer currently working <Link
+        href="https://selleo.com"
+        target="_blank"
+      >
+        @Selleo.
+      </Link>
+    </p>
+    <section>
+      <SocialRow />
+    </section>
+  </main>
+</PageLayout>

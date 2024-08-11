@@ -1,0 +1,53 @@
+---
+import PageLayout from "../components/PageLayout.astro";
+import WorkCard from "../modules/work/work-card.astro";
+import ClientLayout from "../modules/work/client-layout.astro";
+---
+
+<PageLayout
+  title="Work | k1eu.dev"
+  description="Projects and libraries of k1eu.dev - Typed FormData, Just Typescript Snippets"
+>
+  <main class="mt-4 flex flex-1 flex-col items-center self-stretch text-center">
+    <section class="mt-4">
+      <p>Couple of my libraries and projects.</p>
+      <ul class="mt-4 grid grid-cols-1 items-stretch justify-stretch gap-4 sm:grid-cols-2 md:grid-cols-2">
+        <li>
+          <WorkCard
+            href="https://github.com/k1eu/later"
+            title="Later."
+            description="A simple Raycast menubar app for macOS."
+            cta="View on GitHub"
+            icon="racecar"
+          />
+        </li>
+        <li>
+          <WorkCard
+            href="https://github.com/k1eu/typed-formdata"
+            title="typed-formdata"
+            description="Utility library for working with FormData in Typescript."
+            cta="View on GitHub"
+            icon="form"
+          />
+        </li>
+        <li>
+          <WorkCard
+            href="https://marketplace.visualstudio.com/items?itemName=k1eu.just-ts-snippets"
+            title="Just Typescript Snippets"
+            description="Bare necessities snippets for JS&TS vscode developers."
+            cta="Extensions Market"
+            icon="ts"
+          />
+        </li>
+      </ul>
+    </section>
+    <section class="mt-4">
+      <p class="translate-y-8 transform">Here is some client work I'm permitted to share</p>
+      <ul class="mt-4">
+        <li>
+          <ClientLayout />
+        </li>
+      </ul>
+    </section>
+  </main>
+</PageLayout>
