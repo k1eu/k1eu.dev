@@ -2,7 +2,6 @@
 title: "Kosztorys – Stworzenie i Utrzymanie Landing Page"
 layout: "../components/PageLayout.astro"
 ---
-
 <div class="prose prose-lg dark:prose-invert max-w-none my-20">
 
 # Kosztorys – Stworzenie i Utrzymanie Landing Page
@@ -91,6 +90,7 @@ Jeśli mają Państwo pytania bądź potrzebują dostosowania oferty do własnyc
 
 Pozdrawiam,
 Tomasz Kielar,
-k1eu.dev
+me@k1eu.dev
+
 
 </div>
