@@ -1,0 +1,7 @@
+{
+  "name": "k1eu-dev",
+  "compatibility_date": "2026-02-01", // Update to the day you deploy
+  "assets": {
+    "directory": "./dist"
+  }
+}
