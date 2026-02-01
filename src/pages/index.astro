@@ -1,24 +1,46 @@
 ---
-import Link from "../components/Link.astro";
-import Logo from "../components/Logo.astro";
-import PageLayout from "../components/PageLayout.astro";
-import SocialRow from "../components/SocialRow.astro";
+import PageShell from "../layouts/PageShell.astro";
 ---
 
-<PageLayout title="Tomasz Kielar | k1eu.dev">
-  <main class="mt-4 flex flex-col items-center text-center">
-    <Logo />
-    <p class="mt-4">Hi, I'm <b>Tomek</b>. Mostly known as <b>k1eu</b>(q).</p>
-    <p>
-      I'm a <b>Fullstack</b> and <b>Mobile</b> developer currently working <Link
-        href="https://selleo.com"
-        target="_blank"
-      >
-        @Selleo.
-      </Link>
-    </p>
-    <section>
-      <SocialRow />
-    </section>
-  </main>
-</PageLayout>
+<PageShell title="k1eu" description="Tomasz Kielar (k1eu) - fullstack developer. I work on cool things" ogUrl="https://k1eu.dev/" mainClass="gap-12">
+  <section class="flex w-full max-w-sm flex-col items-center gap-6">
+    <div class="relative w-full">
+      <div class="holo-float relative mx-auto flex h-[28rem] w-64 items-center justify-center">
+        <img
+          src="/avatar.png"
+          alt="k1eu hologram character"
+          class="holo-tint h-full w-full object-contain drop-shadow-[0_0_40px_rgba(0,245,255,0.6)]"
+          loading="eager"
+        />
+      </div>
+    </div>
+    <div class="text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">signal intact</div>
+  </section>
+
+  <section class="flex w-full flex-col gap-6 text-left">
+    <div class="space-y-2">
+      <div class="flex items-center gap-3 text-xl justify-start">
+        <span class="glitch text-3xl font-semibold" data-text="k1eu">k1eu</span>
+      </div>
+      <p class="text-xs uppercase tracking-[0.4em] text-[var(--pink-dim)]">tomasz kielar</p>
+      <p class="text-sm text-[var(--pink-bright)]">full-stack &amp; mobile dev</p>
+    </div>
+
+    <div class="space-y-2 text-sm leading-relaxed">
+      <p class="text-[var(--pink-bright)]">おはようございます</p>
+      <p>i build apps, systems, and architecture.</p>
+      <p>using ai as my multiplier.</p>
+      <p>
+        open to cool projects -
+        <a class="neon-link underline-offset-4 underline" href="mailto:me@k1eu.dev">say hi</a>.
+      </p>
+      <p>long drives in europe, japan lover.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-4 text-xs uppercase tracking-[0.35em] text-[var(--pink-dim)]">
+      <a class="neon-link underline-offset-4 underline" href="https://github.com/k1eu">github</a>
+      <a class="neon-link underline-offset-4 underline" href="https://x.com/k1euu">x</a>
+      <a class="neon-link underline-offset-4 underline" href="https://www.linkedin.com/in/k1eu">linkedin</a>
+    </div>
+  </section>
+</PageShell>

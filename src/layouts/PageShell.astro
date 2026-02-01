@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "k1eu",
+  description = "k1eu — minimal holographic home.",
+  ogUrl = "https://k1eu.dev/",
+  mainClass = "gap-12",
+} = Astro.props;
+
+const ogImage = "/og.png";
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body class="min-h-screen bg-[var(--bg)] text-[var(--pink)]">
+    <main
+      class={`relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center px-6 pt-6 pb-10 ${mainClass}`}
+    >
+      <nav class="flex w-full items-center justify-between text-xs uppercase tracking-[0.35em] text-[var(--pink-dim)]">
+        <a class="neon-link underline-offset-4 hover:underline" href="/">home</a>
+        <a class="neon-link underline-offset-4 hover:underline" href="/work">work</a>
+      </nav>
+
+      <slot />
+
+      <footer class="w-full text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
+        © 2021-2026 k1eu
+      </footer>
+    </main>
+  </body>
+</html>
