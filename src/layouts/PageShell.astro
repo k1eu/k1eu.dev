@@ -9,6 +9,11 @@ const {
 } = Astro.props;
 
 const ogImage = "/og.png";
+const navItems = [
+  { href: "/", label: "home" },
+  { href: "/work", label: "work" },
+];
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 ---
 
@@ -35,14 +40,23 @@ const ogImage = "/og.png";
     <main
       class={`relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center px-6 pt-6 pb-10 ${mainClass}`}
     >
-      <nav class="flex w-full items-center justify-between text-xs uppercase tracking-[0.35em] text-[var(--pink-dim)]">
-        <a class="neon-link underline-offset-4 hover:underline" href="/">home</a>
-        <a class="neon-link underline-offset-4 hover:underline" href="/work">work</a>
+      <nav class="site-nav flex w-full items-center justify-between text-xs uppercase tracking-[0.35em] text-[var(--pink-dim)]">
+        {
+          navItems.map(({ href, label }) => (
+            <a
+              class:list={["neon-link underline-offset-4 hover:underline", { "text-[var(--pink-bright)]": currentPath === href }]}
+              href={href}
+              aria-current={currentPath === href ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))
+        }
       </nav>
 
       <slot />
 
-      <footer class="w-full text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
+      <footer class="site-footer w-full text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
         © 2021-2026 k1eu
       </footer>
     </main>
