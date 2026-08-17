@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 200" role="img" aria-label="Tomasz Kielar - Full-Stack Developer">
+  <style>
+    @font-face{font-family:'ChakraP';src:url("data:font/woff2;charset=utf-8;base64,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") format("woff2");font-weight:700;}
+    @font-face{font-family:'PlexM';src:url("data:font/woff2;charset=utf-8;base64,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") format("woff2");font-weight:400;}
+    .title{font-family:'ChakraP','Chakra Petch',sans-serif;font-weight:700;font-size:54px;letter-spacing:2px;}
+    .sub{font-family:'PlexM','IBM Plex Mono',monospace;font-size:16px;letter-spacing:7px;}
+    .tag{font-family:'PlexM','IBM Plex Mono',monospace;font-size:11px;letter-spacing:4px;}
+  </style>
+
+  <defs>
+    <clipPath id="glitchTop"><rect x="0" y="40" width="820" height="38"/></clipPath>
+    <clipPath id="glitchBottom"><rect x="0" y="78" width="820" height="42"/></clipPath>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="rgba(255,45,154,0.06)"/>
+    </pattern>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="rgba(255,45,154,0.12)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="820" height="200" fill="#000000"/>
+  <rect width="820" height="200" fill="url(#grid)" opacity="0.6"/>
+  <rect width="820" height="200" fill="url(#scan)"/>
+
+  <!-- frame corners -->
+  <g stroke="#00b7c4" stroke-width="2" fill="none" opacity="0.9">
+    <path d="M14 34V14H34"/>
+    <path d="M786 14H806V34"/>
+    <path d="M806 166V186H786"/>
+    <path d="M34 186H14V166"/>
+  </g>
+
+  <!-- glitch title: offset layers clipped like .glitch::before/::after -->
+  <g text-anchor="middle">
+    <g clip-path="url(#glitchTop)" opacity="0.6">
+      <text x="412" y="102" class="title" fill="#7ffcff" transform="translate(2,-1)">TOMASZ KIELAR
+        <animate attributeName="opacity" values="1;0.2;1;1" keyTimes="0;0.46;0.62;1" dur="5s" repeatCount="indefinite"/>
+      </text>
+    </g>
+    <g clip-path="url(#glitchBottom)" opacity="0.6">
+      <text x="408" y="102" class="title" fill="#00c9d6" transform="translate(-2,1)">TOMASZ KIELAR
+        <animate attributeName="opacity" values="1;1;0.15;1" keyTimes="0;0.5;0.66;1" dur="5s" repeatCount="indefinite"/>
+      </text>
+    </g>
+    <text x="410" y="102" class="title" fill="#00f5ff" filter="url(#glow)">TOMASZ KIELAR
+      <animate attributeName="opacity" values="0.9;0.65;1;0.9" keyTimes="0;0.45;0.6;1" dur="5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- subtitle -->
+  <text x="413" y="140" text-anchor="middle" class="sub" fill="#7ffcff">FULL-STACK DEVELOPER</text>
+
+  <!-- footer tags -->
+  <text x="48" y="178" class="tag" fill="#00b7c4">&gt; signal intact_</text>
+  <text x="772" y="178" text-anchor="end" class="tag" fill="#00b7c4">k1eu.dev</text>
+
+  <!-- sparkles -->
+  <g fill="#00f5ff">
+    <path d="M120 58l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M700 130l2.4 4.8 4.8 2.4-4.8 2.4-2.4 4.8-2.4-4.8-4.8-2.4 4.8-2.4 2.4-4.8z" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.15;0.6" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="655" cy="52" r="2.5" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="160" cy="150" r="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
