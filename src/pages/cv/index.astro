@@ -1,8 +1,19 @@
 ---
 import PageShell from "../../layouts/PageShell.astro";
 
-const coreStack = ["TypeScript", "React", "React Native", "Node.js", "Bun"];
-const additionalStack = ["Python", "Next.js", "Expo", "Tailwind", "PostgreSQL", "Docker", "CI/CD", "Tests"];
+const stackGroups = [
+  { label: "core", items: ["TypeScript", "React", "React Native", "Node.js", "Bun"], strong: true },
+  { label: "web", items: ["Next.js", "TanStack Start", "React Router", "Vite"] },
+  { label: "backend", items: ["Elysia", "Hono", "Express", "Python (FastAPI)"] },
+  { label: "databases", items: ["PostgreSQL", "Redis", "SQLite"] },
+  { label: "mobile", items: ["Expo", "EAS"] },
+  { label: "ai implementation", items: ["AI SDK", "LangGraph", "RAG (pgvector)", "embedding pipelines"] },
+  { label: "ai tools", items: ["Cursor", "Claude Code"] },
+  {
+    label: "infra & quality",
+    items: ["Docker", "GitHub Actions", "Cloudflare", "Hetzner", "AWS", "Vercel", "Vitest", "Playwright"],
+  },
+];
 
 const earlierExperience = [
   { role: "Web Developer", company: "Re Bena Gesta", detail: "Next.js, headless WordPress, SEO", date: "Mar—May 2021" },
@@ -112,19 +123,19 @@ const projects = [
         <h2 id="stack-heading">stack</h2>
       </div>
 
-      <div class="space-y-7">
-        <div class="space-y-3">
-          <p class="cv-kicker">core systems</p>
-          <ul class="flex flex-wrap gap-2" aria-label="Core technologies">
-            {coreStack.map((technology) => <li class="cv-chip cv-chip-strong">{technology}</li>)}
-          </ul>
-        </div>
-        <div class="space-y-3">
-          <p class="cv-kicker">additional modules</p>
-          <ul class="flex flex-wrap gap-2" aria-label="Additional technologies">
-            {additionalStack.map((technology) => <li class="cv-chip">{technology}</li>)}
-          </ul>
-        </div>
+      <div class="cv-stack">
+        {
+          stackGroups.map(({ label, items, strong }) => (
+            <div class:list={["cv-stack-group", { "cv-stack-core": strong }]}>
+              <p class="cv-kicker">{label}</p>
+              <ul class="flex flex-wrap gap-2" aria-label={label}>
+                {items.map((technology) => (
+                  <li class:list={["cv-chip", { "cv-chip-strong": strong }]}>{technology}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </section>
 
@@ -407,6 +418,27 @@ const projects = [
     box-shadow: 0 0 12px rgba(0, 245, 255, 0.06);
   }
 
+  .cv-stack {
+    display: grid;
+    gap: 1.15rem 1.5rem;
+  }
+
+  .cv-stack-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .cv-stack {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cv-stack-core {
+      grid-column: 1 / -1;
+    }
+  }
+
   .cv-list {
     display: flex;
     flex-direction: column;
@@ -518,8 +550,18 @@ const projects = [
 
     .cv-panel,
     .cv-quote,
-    .cv-timeline-item {
+    .cv-timeline-item,
+    .cv-stack-group {
       break-inside: avoid;
+    }
+
+    .cv-stack {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1rem;
+    }
+
+    .cv-stack-core {
+      grid-column: 1 / -1;
     }
 
     .cv-panel {
