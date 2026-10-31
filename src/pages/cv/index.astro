@@ -1,15 +1,24 @@
 ---
 import PageShell from "../../layouts/PageShell.astro";
 
-const coreStack = ["TypeScript", "React", "React Native", "Node.js", "Bun"];
-const additionalStack = ["Python", "Next.js", "Expo", "Tailwind", "PostgreSQL", "Docker", "CI/CD", "Tests"];
+const stackGroups = [
+  { label: "core", items: ["TypeScript", "React", "React Native", "Node.js", "Bun"], strong: true },
+  { label: "web", items: ["Next.js", "TanStack Start", "React Router", "Vite"] },
+  { label: "backend", items: ["Elysia", "Hono", "Express", "Python (FastAPI)"] },
+  { label: "databases", items: ["PostgreSQL", "Redis", "SQLite"] },
+  { label: "mobile", items: ["Expo", "EAS"] },
+  { label: "ai implementation", items: ["AI SDK", "LangGraph", "RAG (pgvector)", "embedding pipelines"] },
+  { label: "ai tools", items: ["Cursor", "Claude Code", "Grok Bot"] },
+  {
+    label: "infra & quality",
+    items: ["Docker", "GitHub Actions", "Cloudflare", "Hetzner", "AWS", "Vercel", "Vitest", "Playwright"],
+  },
+];
 
 const earlierExperience = [
   { role: "Web Developer", company: "Re Bena Gesta", detail: "Next.js, headless WordPress, SEO", date: "Mar—May 2021" },
   { role: "Webmaster", company: "Setia.pl", detail: "Linux hosting, WordPress, SEO", date: "Jan—Mar 2021" },
-  { role: "Quality Assurance", company: "RES Global Group", date: "Aug—Sep 2020" },
   { role: "Web Dev Intern", company: "Da Vinci Studio", date: "Sep—Dec 2019" },
-  { role: "Sales & Customer Service", company: "Big Star Limited", date: "Jun 2018—Jan 2019" },
 ];
 
 const projects = [
@@ -42,7 +51,7 @@ const projects = [
 
 <PageShell
   title="Tomasz Kielar / CV"
-  description="Tomasz Kielar — Tech Lead, full-stack engineer, and consultant."
+  description="Tomasz Kielar — Tech Lead, full-stack engineer (web & mobile), SpaceXSI Ambassador. AI-native development and co-owner of bielsko.ai."
   ogUrl="https://k1eu.dev/cv/"
   mainClass="gap-10"
 >
@@ -70,7 +79,6 @@ const projects = [
 
         <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
           <a class="neon-link underline underline-offset-4" href="mailto:me@k1eu.dev">me@k1eu.dev</a>
-          <a class="neon-link underline underline-offset-4" href="tel:+48792200218">+48 792 200 218</a>
           <a class="neon-link underline underline-offset-4" href="https://www.linkedin.com/in/k1eu/">linkedin ↗</a>
           <a class="neon-link underline underline-offset-4" href="https://github.com/k1eu">github ↗</a>
         </div>
@@ -92,8 +100,8 @@ const projects = [
             TypeScript, React, React Native, Node.js, and Bun.
           </p>
           <p class="text-sm leading-7">
-            Experienced in end-to-end delivery, technical leadership, mentoring, and client communication. Co-owner
-            of bielsko.ai, focused on practical AI adoption and local community building.
+            SpaceXSI Ambassador and co-owner / lead of bielsko.ai, a local AI community for meetups and workshops.
+            I teach teams AI-native development.
           </p>
         </div>
 
@@ -103,7 +111,7 @@ const projects = [
             <li>architecture to release</li>
             <li>technical leadership & mentoring</li>
             <li>client & stakeholder alignment</li>
-            <li>ai-assisted development</li>
+            <li>ai-native development & enablement</li>
           </ul>
         </div>
       </div>
@@ -115,19 +123,19 @@ const projects = [
         <h2 id="stack-heading">stack</h2>
       </div>
 
-      <div class="space-y-7">
-        <div class="space-y-3">
-          <p class="cv-kicker">core systems</p>
-          <ul class="flex flex-wrap gap-2" aria-label="Core technologies">
-            {coreStack.map((technology) => <li class="cv-chip cv-chip-strong">{technology}</li>)}
-          </ul>
-        </div>
-        <div class="space-y-3">
-          <p class="cv-kicker">additional modules</p>
-          <ul class="flex flex-wrap gap-2" aria-label="Additional technologies">
-            {additionalStack.map((technology) => <li class="cv-chip">{technology}</li>)}
-          </ul>
-        </div>
+      <div class="cv-stack">
+        {
+          stackGroups.map(({ label, items, strong }) => (
+            <div class:list={["cv-stack-group", { "cv-stack-core": strong }]}>
+              <p class="cv-kicker">{label}</p>
+              <ul class="flex flex-wrap gap-2" aria-label={label}>
+                {items.map((technology) => (
+                  <li class:list={["cv-chip", { "cv-chip-strong": strong }]}>{technology}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </section>
 
@@ -152,9 +160,12 @@ const projects = [
               <h4 class="text-sm text-[var(--pink-bright)]">Full-stack engineer / Tech lead</h4>
               <p class="cv-date">may 2023—present</p>
               <ul class="cv-list text-xs leading-6">
-                <li>Own end-to-end delivery: architecture, implementation, and client communication.</li>
+                <li>Drove reskilling of engineers into full-stack developers across a ~100-person company.</li>
+                <li>Built and ran the process of teaching engineers AI-native development from the ground up.</li>
+                <li>Lead web and mobile projects in 2–5 person teams for EdTech and music-industry clients.</li>
+                <li>Own architecture of web and mobile projects, from implementation through client communication.</li>
+                <li>Integrate AI into user-facing applications: chatbots and agents that take actions inside the system.</li>
                 <li>Build full-stack Node.js and Bun applications.</li>
-                <li>Lead projects, mentor developers, and run technical training.</li>
               </ul>
             </div>
             <div class="cv-panel space-y-2">
@@ -171,6 +182,22 @@ const projects = [
         <article class="cv-timeline-item space-y-3">
           <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
+              <h3 class="display text-xl font-semibold text-[var(--pink-bright)]">SpaceXSI Ambassador</h3>
+            </div>
+            <p class="cv-date">2026—present</p>
+          </div>
+          <ul class="cv-list text-sm leading-7">
+            <li>Organize events for SpaceXSI and train people to work effectively with AI.</li>
+            <li>
+              Cafe Cursor Bielsko-Biała #001 — 29 Aug 2026, NovaPatria.{" "}
+              <a class="neon-link underline underline-offset-4" href="https://luma.com/vz2m9zkf">luma ↗</a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="cv-timeline-item space-y-3">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <div>
               <h3 class="display text-xl font-semibold text-[var(--pink-bright)]">bielsko.ai</h3>
               <p class="mt-1 text-sm">co-owner</p>
             </div>
@@ -180,6 +207,14 @@ const projects = [
             <li>Build a local community around practical AI adoption.</li>
             <li>Develop the brand, secure financing and partnerships, and organize events.</li>
             <li>Present practical AI workflows to the local community.</li>
+            <li>
+              bielsko.ai #001 — 26 Jun 2026.{" "}
+              <a class="neon-link underline underline-offset-4" href="https://luma.com/r3dmef6s">luma ↗</a>
+            </li>
+            <li>
+              bielsko.ai #002 — 18 Sep 2026, REKORD SI.{" "}
+              <a class="neon-link underline underline-offset-4" href="https://luma.com/6qzbenue">luma ↗</a>
+            </li>
           </ul>
         </article>
 
@@ -189,12 +224,24 @@ const projects = [
               <h3 class="display text-xl font-semibold text-[var(--pink-bright)]">recave</h3>
               <p class="mt-1 text-sm">co-founder & developer</p>
             </div>
-            <p class="cv-date">2 client projects</p>
+            <p class="cv-date">client projects</p>
           </div>
           <p class="text-sm leading-7">
             Co-founded a product and consultancy initiative delivering business applications for external clients,
             alongside technical media and podcasts.
           </p>
+          <ul class="cv-list text-sm leading-7">
+            <li>
+              OPTI-ENER — mobile app for remote access to the OPTI-ENER electricity management system for heat pumps.
+              React Native, Expo, TypeScript.{" "}
+              <a
+                class="neon-link underline underline-offset-4"
+                href="https://apps.apple.com/pl/app/opti-ener/id6473692228"
+              >
+                app store ↗
+              </a>
+            </li>
+          </ul>
         </article>
 
         <article class="cv-timeline-item space-y-4">
@@ -371,6 +418,27 @@ const projects = [
     box-shadow: 0 0 12px rgba(0, 245, 255, 0.06);
   }
 
+  .cv-stack {
+    display: grid;
+    gap: 1.15rem 1.5rem;
+  }
+
+  .cv-stack-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .cv-stack {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cv-stack-core {
+      grid-column: 1 / -1;
+    }
+  }
+
   .cv-list {
     display: flex;
     flex-direction: column;
@@ -482,8 +550,18 @@ const projects = [
 
     .cv-panel,
     .cv-quote,
-    .cv-timeline-item {
+    .cv-timeline-item,
+    .cv-stack-group {
       break-inside: avoid;
+    }
+
+    .cv-stack {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1rem;
+    }
+
+    .cv-stack-core {
+      grid-column: 1 / -1;
     }
 
     .cv-panel {
