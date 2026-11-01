@@ -63,47 +63,51 @@ const projects = [
 >
   <article class="cv-page flex w-full flex-col gap-14 text-left">
     <header class="cv-header relative overflow-hidden border-y border-[var(--pink-soft)] py-8 sm:py-10">
-      <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-40 sm:block" aria-hidden="true">
-        <img
-          src="/avatar.png"
-          alt=""
-          class="h-full w-full object-contain object-right opacity-20 drop-shadow-[0_0_24px_rgba(0,245,255,0.55)]"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
-      </div>
-
-      <div class="relative z-10 max-w-xl space-y-5">
-        <div class="space-y-2">
-          <p class="cv-kicker">personnel record // 001</p>
-          <h1 class="glitch text-4xl font-semibold sm:text-5xl" data-text="tomasz kielar">tomasz kielar</h1>
-          <div class="space-y-1">
-            <p class="text-sm text-[var(--pink-bright)] sm:text-base">tech lead · full-stack engineer · consultant</p>
-            <p class="text-sm text-[var(--pink-bright)] sm:text-base">SpaceXSI Ambassador</p>
+      <div class="cv-header-main">
+        <div class="cv-header-copy space-y-5">
+          <div class="space-y-2">
+            <p class="cv-kicker">personnel record // 001</p>
+            <h1 class="glitch text-4xl font-semibold sm:text-5xl" data-text="tomasz kielar">tomasz kielar</h1>
+            <div class="space-y-1">
+              <p class="text-sm text-[var(--pink-bright)] sm:text-base">tech lead · full-stack engineer · consultant</p>
+              <p class="text-sm text-[var(--pink-bright)] sm:text-base">SpaceXSI Ambassador</p>
+            </div>
+            <p class="text-xs uppercase tracking-[0.25em] text-[var(--pink-dim)]">bielsko-biała, poland</p>
           </div>
-          <p class="text-xs uppercase tracking-[0.25em] text-[var(--pink-dim)]">bielsko-biała, poland</p>
+
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+            <a class="neon-link underline underline-offset-4" href="mailto:me@k1eu.dev">me@k1eu.dev</a>
+            <a
+              class="neon-link cv-contact-link underline underline-offset-4"
+              href="https://www.linkedin.com/in/k1eu/"
+              aria-label="Tomasz Kielar on LinkedIn"
+              data-print-label="linkedin.com/in/k1eu"
+            >
+              <span class="cv-link-label">linkedin <span aria-hidden="true">↗</span></span>
+            </a>
+            <a
+              class="neon-link cv-contact-link underline underline-offset-4"
+              href="https://github.com/k1eu"
+              aria-label="Tomasz Kielar on GitHub"
+              data-print-label="github.com/k1eu"
+            >
+              <span class="cv-link-label">github <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+
+          <button class="print-control cv-button" type="button" onclick="window.print()">print / save pdf</button>
         </div>
 
-        <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
-          <a class="neon-link underline underline-offset-4" href="mailto:me@k1eu.dev">me@k1eu.dev</a>
-          <a
-            class="neon-link cv-contact-link underline underline-offset-4"
-            href="https://www.linkedin.com/in/k1eu/"
-            aria-label="Tomasz Kielar on LinkedIn"
-            data-print-label="linkedin.com/in/k1eu"
-          >
-            <span class="cv-link-label">linkedin <span aria-hidden="true">↗</span></span>
-          </a>
-          <a
-            class="neon-link cv-contact-link underline underline-offset-4"
-            href="https://github.com/k1eu"
-            aria-label="Tomasz Kielar on GitHub"
-            data-print-label="github.com/k1eu"
-          >
-            <span class="cv-link-label">github <span aria-hidden="true">↗</span></span>
-          </a>
+        <div class="cv-header-photo">
+          <img
+            src="/tomasz-kielar.jpg"
+            alt="Tomasz Kielar"
+            width="560"
+            height="700"
+            loading="eager"
+            decoding="async"
+          />
         </div>
-
-        <button class="print-control cv-button" type="button" onclick="window.print()">print / save pdf</button>
       </div>
     </header>
 
@@ -577,6 +581,49 @@ const projects = [
     text-decoration-thickness: 1px;
   }
 
+  .cv-header-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.1rem;
+  }
+
+  .cv-header-copy {
+    position: relative;
+    z-index: 10;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .cv-header-photo {
+    flex: 0 0 7.25rem;
+    width: 7.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .cv-header-main {
+      gap: 1.75rem;
+    }
+
+    .cv-header-photo {
+      flex-basis: 9.5rem;
+      width: 9.5rem;
+    }
+  }
+
+  .cv-header-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: 0.35rem;
+    border: 1px solid var(--pink-soft);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.32);
+  }
+
   @page {
     size: A4;
     margin: 14mm;
@@ -592,9 +639,7 @@ const projects = [
     :global(.site-nav),
     :global(.site-footer),
     .print-control,
-    .cv-end,
-    .cv-header img,
-    .cv-header div[aria-hidden="true"] {
+    .cv-end {
       display: none !important;
     }
 
@@ -612,6 +657,24 @@ const projects = [
     .cv-header {
       padding: 0 0 0.55rem !important;
       border-color: #a7c7cc !important;
+    }
+
+    .cv-header-main {
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .cv-header-photo {
+      flex-basis: 30mm;
+      width: 30mm;
+    }
+
+    .cv-header-photo img {
+      display: block !important;
+      border-radius: 2px;
+      border-color: #b8d2d6;
+      box-shadow: none !important;
+      filter: none;
     }
 
     .cv-header h1,
