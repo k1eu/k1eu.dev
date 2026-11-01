@@ -26,7 +26,9 @@ const projects = [
     name: "OPTI-ENER",
     label: "mobile app",
     href: "https://apps.apple.com/pl/app/opti-ener/id6473692228",
-    linkLabel: "app store ↗",
+    linkLabel: "app store",
+    ariaLabel: "OPTI-ENER on the App Store",
+    printUrl: "apps.apple.com/app/opti-ener",
     description: "Remote access to the OPTI-ENER electricity management system for heat pumps.",
     stack: "React Native · Expo · TypeScript",
   },
@@ -34,7 +36,9 @@ const projects = [
     name: "TypedFormData",
     label: "open source",
     href: "https://github.com/k1eu/typed-formdata",
-    linkLabel: "github ↗",
+    linkLabel: "github",
+    ariaLabel: "TypedFormData on GitHub",
+    printUrl: "github.com/k1eu/typed-formdata",
     description: "A small utility library for working with FormData in TypeScript.",
     stack: "TypeScript",
   },
@@ -42,7 +46,9 @@ const projects = [
     name: "Just TypeScript Snippets",
     label: "developer tool",
     href: "https://marketplace.visualstudio.com/items?itemName=k1eu.just-ts-snippets",
-    linkLabel: "marketplace ↗",
+    linkLabel: "marketplace",
+    ariaLabel: "Just TypeScript Snippets on the VS Code Marketplace",
+    printUrl: "marketplace.visualstudio.com",
     description: "Bare-necessities JavaScript and TypeScript snippets for VS Code.",
     stack: "VS Code · JavaScript · TypeScript",
   },
@@ -57,33 +63,51 @@ const projects = [
 >
   <article class="cv-page flex w-full flex-col gap-14 text-left">
     <header class="cv-header relative overflow-hidden border-y border-[var(--pink-soft)] py-8 sm:py-10">
-      <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-40 sm:block" aria-hidden="true">
-        <img
-          src="/avatar.png"
-          alt=""
-          class="h-full w-full object-contain object-right opacity-20 drop-shadow-[0_0_24px_rgba(0,245,255,0.55)]"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
-      </div>
-
-      <div class="relative z-10 max-w-xl space-y-5">
-        <div class="space-y-2">
-          <p class="cv-kicker">personnel record // 001</p>
-          <h1 class="glitch text-4xl font-semibold sm:text-5xl" data-text="tomasz kielar">tomasz kielar</h1>
-          <div class="space-y-1">
-            <p class="text-sm text-[var(--pink-bright)] sm:text-base">tech lead · full-stack engineer · consultant</p>
-            <p class="text-sm text-[var(--pink-bright)] sm:text-base">SpaceXSI Ambassador</p>
+      <div class="cv-header-main">
+        <div class="cv-header-copy space-y-5">
+          <div class="space-y-2">
+            <p class="cv-kicker">personnel record // 001</p>
+            <h1 class="glitch text-4xl font-semibold sm:text-5xl" data-text="tomasz kielar">tomasz kielar</h1>
+            <div class="space-y-1">
+              <p class="text-sm text-[var(--pink-bright)] sm:text-base">tech lead · full-stack engineer · consultant</p>
+              <p class="text-sm text-[var(--pink-bright)] sm:text-base">SpaceXSI Ambassador</p>
+            </div>
+            <p class="text-xs uppercase tracking-[0.25em] text-[var(--pink-dim)]">bielsko-biała, poland</p>
           </div>
-          <p class="text-xs uppercase tracking-[0.25em] text-[var(--pink-dim)]">bielsko-biała, poland</p>
+
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+            <a class="neon-link underline underline-offset-4" href="mailto:me@k1eu.dev">me@k1eu.dev</a>
+            <a
+              class="neon-link cv-contact-link underline underline-offset-4"
+              href="https://www.linkedin.com/in/k1eu/"
+              aria-label="Tomasz Kielar on LinkedIn"
+              data-print-label="linkedin.com/in/k1eu"
+            >
+              <span class="cv-link-label">linkedin <span aria-hidden="true">↗</span></span>
+            </a>
+            <a
+              class="neon-link cv-contact-link underline underline-offset-4"
+              href="https://github.com/k1eu"
+              aria-label="Tomasz Kielar on GitHub"
+              data-print-label="github.com/k1eu"
+            >
+              <span class="cv-link-label">github <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+
+          <button class="print-control cv-button" type="button" onclick="window.print()">print / save pdf</button>
         </div>
 
-        <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
-          <a class="neon-link underline underline-offset-4" href="mailto:me@k1eu.dev">me@k1eu.dev</a>
-          <a class="neon-link underline underline-offset-4" href="https://www.linkedin.com/in/k1eu/">linkedin ↗</a>
-          <a class="neon-link underline underline-offset-4" href="https://github.com/k1eu">github ↗</a>
+        <div class="cv-header-photo">
+          <img
+            src="/tomasz-kielar.jpg"
+            alt="Tomasz Kielar"
+            width="560"
+            height="700"
+            loading="eager"
+            decoding="async"
+          />
         </div>
-
-        <button class="print-control cv-button" type="button" onclick="window.print()">print / save pdf</button>
       </div>
     </header>
 
@@ -155,7 +179,7 @@ const projects = [
             <p class="cv-date">may 2021—present · hybrid</p>
           </div>
 
-          <div class="grid gap-5 sm:grid-cols-2">
+          <div class="cv-role-grid grid gap-5 sm:grid-cols-2">
             <div class="cv-panel space-y-2">
               <h4 class="text-sm text-[var(--pink-bright)]">Full-stack engineer / Tech lead</h4>
               <p class="cv-date">may 2023—present</p>
@@ -190,7 +214,14 @@ const projects = [
             <li>Organize events for SpaceXSI and train people to work effectively with AI.</li>
             <li>
               Cafe Cursor Bielsko-Biała #001 — 29 Aug 2026, NovaPatria.{" "}
-              <a class="neon-link underline underline-offset-4" href="https://luma.com/vz2m9zkf">luma ↗</a>
+              <a
+                class="neon-link cv-text-link"
+                href="https://luma.com/vz2m9zkf"
+                aria-label="Cafe Cursor Bielsko-Biała #001 on Luma"
+                data-print-url="luma.com/vz2m9zkf"
+              >
+                luma <span aria-hidden="true">↗</span>
+              </a>
             </li>
           </ul>
         </article>
@@ -209,11 +240,25 @@ const projects = [
             <li>Present practical AI workflows to the local community.</li>
             <li>
               bielsko.ai #001 — 26 Jun 2026.{" "}
-              <a class="neon-link underline underline-offset-4" href="https://luma.com/r3dmef6s">luma ↗</a>
+              <a
+                class="neon-link cv-text-link"
+                href="https://luma.com/r3dmef6s"
+                aria-label="bielsko.ai #001 on Luma"
+                data-print-url="luma.com/r3dmef6s"
+              >
+                luma <span aria-hidden="true">↗</span>
+              </a>
             </li>
             <li>
               bielsko.ai #002 — 18 Sep 2026, REKORD SI.{" "}
-              <a class="neon-link underline underline-offset-4" href="https://luma.com/6qzbenue">luma ↗</a>
+              <a
+                class="neon-link cv-text-link"
+                href="https://luma.com/6qzbenue"
+                aria-label="bielsko.ai #002 on Luma"
+                data-print-url="luma.com/6qzbenue"
+              >
+                luma <span aria-hidden="true">↗</span>
+              </a>
             </li>
           </ul>
         </article>
@@ -235,10 +280,12 @@ const projects = [
               OPTI-ENER — mobile app for remote access to the OPTI-ENER electricity management system for heat pumps.
               React Native, Expo, TypeScript.{" "}
               <a
-                class="neon-link underline underline-offset-4"
+                class="neon-link cv-text-link"
                 href="https://apps.apple.com/pl/app/opti-ener/id6473692228"
+                aria-label="OPTI-ENER on the App Store"
+                data-print-url="apps.apple.com/app/opti-ener"
               >
-                app store ↗
+                app store <span aria-hidden="true">↗</span>
               </a>
             </li>
           </ul>
@@ -269,9 +316,9 @@ const projects = [
         <h2 id="projects-heading">selected projects</h2>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-3">
+      <div class="cv-projects grid gap-4 sm:grid-cols-3">
         {
-          projects.map(({ name, label, href, linkLabel, description, stack }) => (
+          projects.map(({ name, label, href, linkLabel, ariaLabel, printUrl, description, stack }) => (
             <article class="cv-panel flex min-h-56 flex-col gap-4">
               <div class="space-y-1">
                 <p class="cv-kicker">{label}</p>
@@ -280,7 +327,14 @@ const projects = [
               <p class="text-xs leading-6">{description}</p>
               <div class="mt-auto space-y-3">
                 <p class="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--pink-dim)]">{stack}</p>
-                <a class="neon-link text-xs underline underline-offset-4" href={href}>{linkLabel}</a>
+                <a
+                  class="neon-link text-xs underline underline-offset-4"
+                  href={href}
+                  aria-label={ariaLabel}
+                  data-print-url={printUrl}
+                >
+                  {linkLabel} <span aria-hidden="true">↗</span>
+                </a>
               </div>
             </article>
           ))
@@ -294,7 +348,7 @@ const projects = [
         <h2 id="recommendations-heading">field reports</h2>
       </div>
 
-      <div class="grid gap-5 sm:grid-cols-2">
+      <div class="cv-quotes grid gap-5 sm:grid-cols-2">
         <blockquote class="cv-quote">
           <p>
             “He assisted in both AI development and research, helping build smart features across multi-verticals
@@ -315,7 +369,13 @@ const projects = [
       </div>
       <p class="mt-5 text-xs text-[var(--pink-dim)]">
         complete reports available on
-        <a class="neon-link underline underline-offset-4" href="https://www.linkedin.com/in/k1eu/">linkedin ↗</a>
+        <a
+          class="neon-link cv-text-link"
+          href="https://www.linkedin.com/in/k1eu/"
+          aria-label="Tomasz Kielar recommendations on LinkedIn"
+        >
+          linkedin <span aria-hidden="true">↗</span>
+        </a>
       </p>
     </section>
 
@@ -514,19 +574,72 @@ const projects = [
     box-shadow: 0 0 16px rgba(0, 245, 255, 0.16);
   }
 
+  .cv-text-link {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--pink) 55%, transparent);
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  .cv-header-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.1rem;
+  }
+
+  .cv-header-copy {
+    position: relative;
+    z-index: 10;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .cv-header-photo {
+    flex: 0 0 7.25rem;
+    width: 7.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .cv-header-main {
+      gap: 1.75rem;
+    }
+
+    .cv-header-photo {
+      flex-basis: 9.5rem;
+      width: 9.5rem;
+    }
+  }
+
+  .cv-header-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: 0.35rem;
+    border: 1px solid var(--pink-soft);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.32);
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
   @media print {
     :global(body) {
       background: #fff !important;
       color: #10252a !important;
-      font-size: 10pt;
+      font-size: 9.4pt;
     }
 
     :global(.site-nav),
     :global(.site-footer),
     .print-control,
-    .cv-end,
-    .cv-header img,
-    .cv-header div[aria-hidden="true"] {
+    .cv-end {
       display: none !important;
     }
 
@@ -537,51 +650,128 @@ const projects = [
     }
 
     .cv-page {
-      gap: 2rem !important;
+      gap: 1.15rem !important;
       color: #17343a !important;
     }
 
     .cv-header {
-      padding: 0 0 1rem !important;
+      padding: 0 0 0.55rem !important;
       border-color: #a7c7cc !important;
     }
 
+    .cv-header-main {
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .cv-header-photo {
+      flex-basis: 30mm;
+      width: 30mm;
+    }
+
+    .cv-header-photo img {
+      display: block !important;
+      border-radius: 2px;
+      border-color: #b8d2d6;
+      box-shadow: none !important;
+      filter: none;
+    }
+
+    .cv-header h1,
+    .cv-page :global(.glitch) {
+      color: #10252a !important;
+      text-shadow: none !important;
+    }
+
+    .cv-page :global(.glitch)::before,
+    .cv-page :global(.glitch)::after {
+      content: none !important;
+      display: none !important;
+    }
+
     .cv-section {
-      gap: 1rem;
+      gap: 0.55rem;
       break-inside: auto;
+    }
+
+    .cv-section-heading {
+      break-after: avoid;
+      page-break-after: avoid;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      padding-bottom: 0.35rem;
+      letter-spacing: 0.05em;
+    }
+
+    .cv-section-heading + * {
+      break-before: avoid;
+      page-break-before: avoid;
+    }
+
+    .cv-page h2,
+    .cv-page h3,
+    .cv-page h4 {
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
     .cv-panel,
     .cv-quote,
-    .cv-timeline-item,
     .cv-stack-group {
       break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .cv-timeline-item {
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    .cv-role-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
     }
 
     .cv-stack {
       grid-template-columns: 1fr 1fr;
-      gap: 0.7rem 1rem;
+      gap: 0.4rem 0.85rem;
     }
 
     .cv-stack-core {
       grid-column: 1 / -1;
     }
 
+    .cv-projects {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.55rem;
+    }
+
+    .cv-quotes {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
     .cv-panel {
       background: transparent !important;
       border-color: #b8d2d6 !important;
       box-shadow: none !important;
+      padding: 0.5rem 0.65rem;
     }
 
     .cv-section-heading,
-    .cv-timeline,
     .cv-chip,
     .cv-quote {
       border-color: #b8d2d6 !important;
     }
 
     .cv-section-heading h2,
+    .cv-chip,
     .cv-chip-strong,
+    .cv-section-heading > span,
+    .cv-quote footer,
+    .cv-date,
+    .cv-list li::before,
     .cv-page :global(.text-\[var\(--pink-bright\)\]),
     .cv-page :global(.neon-link) {
       color: #075b66 !important;
@@ -589,20 +779,126 @@ const projects = [
     }
 
     .cv-kicker,
-    .cv-date,
     .cv-page :global(.text-\[var\(--pink-dim\)\]) {
-      color: #40747b !important;
+      color: #075b66 !important;
+    }
+
+    .cv-kicker,
+    .cv-date,
+    .cv-quote footer,
+    .cv-page :global([class*="tracking-"]) {
+      letter-spacing: 0.05em !important;
+    }
+
+    .cv-timeline {
+      border-left: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .cv-timeline-item {
+      border-left: 1px solid #b8d2d6;
+      margin-left: 0.2rem;
+      padding-left: 1.15rem;
     }
 
     .cv-timeline-item::before {
+      left: -0.3rem;
       border-color: #075b66;
       background: #fff;
       box-shadow: none;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .cv-quote {
+      line-height: 1.45;
+      padding: 0.05rem 0 0.05rem 0.7rem;
+    }
+
+    .cv-quote footer {
+      margin-top: 0.4rem;
+    }
+
+    .cv-chip {
+      padding: 0.2rem 0.42rem;
+    }
+
+    .cv-list {
+      gap: 0.08rem;
+    }
+
+    .cv-page :global(.space-y-10) > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.75rem !important;
+    }
+
+    .cv-page :global(.space-y-6) > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.55rem !important;
+    }
+
+    .cv-page :global(.space-y-5) > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.45rem !important;
+    }
+
+    .cv-page :global(.space-y-4) > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.35rem !important;
+    }
+
+    .cv-page :global(.leading-7) {
+      line-height: 1.4 !important;
+    }
+
+    .cv-page :global(.leading-6) {
+      line-height: 1.35 !important;
+    }
+
+    .cv-page :global(.min-h-56) {
+      min-height: 0 !important;
+    }
+
+    .cv-page :global(.gap-8) {
+      gap: 0.65rem !important;
+    }
+
+    .cv-page :global(.gap-5) {
+      gap: 0.45rem !important;
+    }
+
+    .cv-page :global(.mt-5) {
+      margin-top: 0.45rem !important;
+    }
+
+    .cv-page :global(.py-3) {
+      padding-top: 0.35rem !important;
+      padding-bottom: 0.35rem !important;
+    }
+
+    .cv-contact-link[data-print-label] .cv-link-label {
+      display: none;
+    }
+
+    .cv-contact-link[data-print-label]::after {
+      content: attr(data-print-label);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .cv-page a {
+      color: #075b66 !important;
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+      text-shadow: none !important;
+    }
+
+    .cv-page [aria-hidden="true"] {
+      display: none;
+    }
+
+    .cv-page a[data-print-url]::after {
+      content: " " attr(data-print-url);
+      font-size: 0.78em;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #40747b;
+      font-weight: 400;
     }
   }
 </style>
