@@ -1,101 +1,160 @@
 ---
 import PageShell from "../../layouts/PageShell.astro";
+
+const projects = [
+  {
+    title: "AI-first PropTech application",
+    bullets: [
+      "AI research and development",
+      "proactive AI agents development",
+      "voice mode AI development",
+      "image editing workflows with AI",
+    ],
+    quote: {
+      text: "He assisted in both AI development and research, helping build smart features across multi-verticals that required switch in thinking at all times. He stayed well-informed on fast moving AI trends, which kept our goals moving forward.",
+      name: "Mohamad Kinawi",
+      credit: "Founder & CEO (client) · 2026",
+    },
+  },
+  {
+    title: "LMS for the convenience store industry",
+    bullets: [
+      "leading a mobile team",
+      "mobile app architecture",
+      "full infra and CI setup",
+      "OTA updates system",
+      "xAPI (Experience API) integration",
+    ],
+    quote: {
+      text: "Our mobile app project would not have been a success without Tomasz at the helm of the mobile team. His insights into the mobile development process were invaluable. I had experienced the woes of getting apps approved with another startup, and Tomasz made the process look easy; getting our Google Play listing approved almost instantly, and diligently working to jump through Apple's hoops to get us on the App Store.",
+      name: "Haley Power",
+      credit: "brand + training specialist (worked together, different companies) · 2023",
+    },
+  },
+  {
+    title: "Project-based learning platform for K-12 kids in the USA",
+    bullets: [
+      "leading the frontend team",
+      "frontend architecture and development",
+      "integrating with official government services",
+    ],
+    quote: {
+      text: "…I can honestly say that he is one of the most talented Front-end ReactJS developers I have ever worked with. Tomasz has a deep understanding of ReactJS and other front-end technologies, and he has an amazing ability to take on complex interfaces and turn them into highly functional and intuitive user experiences.",
+      name: "Rob Eifler",
+      credit: "CTO & Co-Founder at Defined (client) · 2023",
+    },
+  },
+];
 ---
 
 <PageShell
   title="k1eu / work"
-  description="Tomasz Kielar (k1eu) work — projects, client case, recommendations."
+  description="Tomasz Kielar (k1eu) work - client projects, testimonials, open source."
   ogUrl="https://k1eu.dev/work/"
   mainClass="gap-10"
 >
   <section class="flex w-full flex-col gap-10 text-left">
     <div class="space-y-2">
       <div class="flex items-center gap-3 text-xl justify-start">
-        <span class="glitch text-3xl font-semibold" data-text="work">work</span>
+        <h1 class="glitch text-3xl font-semibold" data-text="work">work</h1>
       </div>
-      <p class="text-xs uppercase tracking-[0.4em] text-[var(--pink-dim)]">selected projects + client work.</p>
+      <p class="text-xs uppercase tracking-[0.4em] text-[var(--pink-dim)]">open source + client projects.</p>
     </div>
 
-    <div class="space-y-4">
-      <p class="text-xs uppercase tracking-[0.35em] text-[var(--pink-bright)]">projects</p>
+    <section class="space-y-4" aria-labelledby="open-source-heading">
+      <h2
+        id="open-source-heading"
+        class="text-xs uppercase tracking-[0.35em] text-[var(--pink-bright)]"
+      >
+        open source
+      </h2>
       <ul class="space-y-3 text-sm leading-relaxed">
         <li>
-          <a class="neon-link underline-offset-4 hover:underline" href="https://github.com/k1eu/later">Later</a>
-          - Raycast menubar app for macOS.
-        </li>
-        <li>
-          <a class="neon-link underline-offset-4 hover:underline" href="https://github.com/k1eu/typed-formdata">
+          <a class="neon-link underline underline-offset-4" href="https://github.com/k1eu/typed-formdata">
             TypedFormData
           </a>
           - Utility library for typed FormData in TypeScript.
         </li>
-        <li>
-          <a
-            class="neon-link underline-offset-4 hover:underline"
-            href="https://marketplace.visualstudio.com/items?itemName=k1eu.just-ts-snippets"
-          >
-            Just Typescript Snippets
-          </a>
-          - Bare-necessities JS/TS snippets for VS Code.
-        </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="space-y-4">
-      <p class="text-xs uppercase tracking-[0.35em] text-[var(--pink-bright)]">client case</p>
-      <div class="space-y-2 text-sm leading-relaxed">
-        <p>
-          <a
-            class="neon-link underline-offset-4 hover:underline"
-            href="https://apps.apple.com/pl/app/opti-ener/id6473692228"
-          >
-            OptiEner for Hewalex
-          </a>
-          - mobile app to control, monitor, and analyze smart-home energy usage.
-        </p>
-        <p class="text-[var(--pink-dim)]">Built with React Native, Expo, TypeScript.</p>
+    <section class="space-y-6" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="text-xs uppercase tracking-[0.35em] text-[var(--pink-bright)]">
+        projects
+      </h2>
+
+      <div class="space-y-6">
+        {
+          projects.map(({ title, bullets, quote }) => (
+            <article class="project-card space-y-3">
+              <h3 class="text-sm text-[var(--pink-bright)]">{title}</h3>
+              <ul class="project-list space-y-1 text-sm leading-relaxed">
+                {bullets.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <figure class="project-quote space-y-2">
+                <blockquote>
+                  <p>“{quote.text}”</p>
+                </blockquote>
+                <figcaption class="space-y-1">
+                  <cite class="not-italic text-[var(--pink-bright)]">{quote.name}</cite>
+                  <p class="text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">{quote.credit}</p>
+                </figcaption>
+              </figure>
+            </article>
+          ))
+        }
+
+        <article class="project-card space-y-3">
+          <h3 class="text-sm text-[var(--pink-bright)]">
+            <a
+              class="neon-link underline underline-offset-4"
+              href="https://apps.apple.com/pl/app/opti-ener/id6473692228"
+            >
+              OptiEner for Hewalex
+            </a>
+          </h3>
+          <p class="text-sm leading-relaxed">mobile app to control, monitor, and analyze smart-home energy usage.</p>
+          <p class="text-sm leading-relaxed text-[var(--pink-dim)]">Built with React Native, Expo, TypeScript.</p>
+        </article>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <p class="text-xs uppercase tracking-[0.35em] text-[var(--pink-bright)]">recommendations</p>
-      <ul class="space-y-6 text-sm leading-relaxed">
-        <li class="space-y-2">
-          <div class="space-y-1">
-            <span class="text-[var(--pink-bright)]">Peter Lancaster</span>
-            <p class="text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
-              ceo at brandactif singapore (client) · 2023
-            </p>
-          </div>
-          <p>
-            “Tomasz is a highly skilled developer and his expertise was also very helpful in creating a
-            Siri/Google Assistant voice controlled application using React Native. This was done to a very tight
-            deadline and we weren't sure whether it was even possible! Tomasz is very dedicated and is always
-            willing to research complex ideas and bring them to life.”
-          </p>
-        </li>
-        <li class="space-y-2">
-          <div class="space-y-1">
-            <span class="text-[var(--pink-bright)]">Haley Power</span>
-            <p class="text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
-              brand + training specialist (worked together, different companies) · 2023
-            </p>
-          </div>
-          <p>
-            “Our mobile app project would not have been a success without Tomasz at the helm of the mobile team.
-            His insights into the mobile development process were invaluable. I had experienced the woes of
-            getting apps approved with another startup, and Tomasz made the process look easy; getting our Google
-            Play listing approved almost instantly, and diligently working to jump through Apple's hoops to get
-            us on the App Store.”
-          </p>
-        </li>
-      </ul>
       <p class="text-xs uppercase tracking-[0.3em] text-[var(--pink-dim)]">
         full recommendations on
         <a class="neon-link underline-offset-4 underline" href="https://www.linkedin.com/in/k1eu">
           linkedin
         </a>
       </p>
-    </div>
+    </section>
   </section>
 </PageShell>
+
+<style>
+  .project-card {
+    border: 1px solid var(--pink-soft);
+    border-left: 1px solid var(--pink);
+    padding: 1rem 1.1rem;
+  }
+
+  .project-list li {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .project-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--pink-dim);
+  }
+
+  .project-quote {
+    padding-top: 0.35rem;
+  }
+
+  .project-quote blockquote {
+    font-size: 0.875rem;
+    line-height: 1.625;
+  }
+</style>
