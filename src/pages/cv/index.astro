@@ -21,17 +21,65 @@ const earlierExperience = [
   { role: "Web Dev Intern", company: "Da Vinci Studio", date: "Sep—Dec 2019" },
 ];
 
-const projects = [
+/** @type {{ title: string, kicker: string, bullets?: string[], quote?: { text: string, name: string, credit: string }, href?: string, ariaLabel?: string, printUrl?: string, description?: string, stack?: string[] }[]} */
+const selectedProjects = [
   {
-    name: "OPTI-ENER",
-    label: "mobile app",
-    href: "https://apps.apple.com/pl/app/opti-ener/id6473692228",
-    linkLabel: "app store",
-    ariaLabel: "OPTI-ENER on the App Store",
-    printUrl: "apps.apple.com/app/opti-ener",
-    description: "Remote access to the OPTI-ENER electricity management system for heat pumps.",
-    stack: "React Native · Expo · TypeScript",
+    title: "AI-first PropTech application",
+    kicker: "client project",
+    bullets: [
+      "AI research and development",
+      "proactive AI agents development",
+      "voice mode AI development",
+      "image editing workflows with AI",
+    ],
+    quote: {
+      text: "He assisted in both AI development and research, helping build smart features across multi-verticals that required switch in thinking at all times. He stayed well-informed on fast moving AI trends, which kept our goals moving forward.",
+      name: "Mohamad Kinawi",
+      credit: "Founder & CEO (client) · 2026",
+    },
   },
+  {
+    title: "LMS for the convenience store industry",
+    kicker: "client project",
+    bullets: [
+      "leading a mobile team",
+      "mobile app architecture",
+      "full infra and CI setup",
+      "OTA updates system",
+      "xAPI (Experience API) integration",
+    ],
+    quote: {
+      text: "Our mobile app project would not have been a success without Tomasz at the helm of the mobile team. His insights into the mobile development process were invaluable. I had experienced the woes of getting apps approved with another startup, and Tomasz made the process look easy; getting our Google Play listing approved almost instantly, and diligently working to jump through Apple's hoops to get us on the App Store.",
+      name: "Haley Power",
+      credit: "brand + training specialist (worked together, different companies) · 2023",
+    },
+  },
+  {
+    title: "Project-based learning platform for K-12 kids in the USA",
+    kicker: "client project",
+    bullets: [
+      "leading the frontend team",
+      "frontend architecture and development",
+      "integrating with official government services",
+    ],
+    quote: {
+      text: "…I can honestly say that he is one of the most talented Front-end ReactJS developers I have ever worked with. Tomasz has a deep understanding of ReactJS and other front-end technologies, and he has an amazing ability to take on complex interfaces and turn them into highly functional and intuitive user experiences.",
+      name: "Rob Eifler",
+      credit: "CTO & Co-Founder at Defined (client) · 2023",
+    },
+  },
+  {
+    title: "OptiEner for Hewalex",
+    kicker: "mobile app",
+    href: "https://apps.apple.com/pl/app/opti-ener/id6473692228",
+    ariaLabel: "OptiEner for Hewalex on the App Store",
+    printUrl: "apps.apple.com/app/opti-ener",
+    description: "mobile app to control, monitor, and analyze smart-home energy usage.",
+    stack: ["React Native", "Expo", "TypeScript"],
+  },
+];
+
+const openSource = [
   {
     name: "TypedFormData",
     label: "open source",
@@ -40,7 +88,6 @@ const projects = [
     ariaLabel: "TypedFormData on GitHub",
     printUrl: "github.com/k1eu/typed-formdata",
     description: "A small utility library for working with FormData in TypeScript.",
-    stack: "TypeScript",
   },
   {
     name: "Just TypeScript Snippets",
@@ -50,7 +97,6 @@ const projects = [
     ariaLabel: "Just TypeScript Snippets on the VS Code Marketplace",
     printUrl: "marketplace.visualstudio.com",
     description: "Bare-necessities JavaScript and TypeScript snippets for VS Code.",
-    stack: "VS Code · JavaScript · TypeScript",
   },
 ];
 ---
@@ -283,20 +329,6 @@ const projects = [
             Co-founded a product and consultancy initiative delivering business applications for external clients,
             alongside technical media and podcasts.
           </p>
-          <ul class="cv-list text-sm leading-7">
-            <li>
-              OPTI-ENER — mobile app for remote access to the OPTI-ENER electricity management system for heat pumps.
-              React Native, Expo, TypeScript.{" "}
-              <a
-                class="neon-link cv-text-link"
-                href="https://apps.apple.com/pl/app/opti-ener/id6473692228"
-                aria-label="OPTI-ENER on the App Store"
-                data-print-url="apps.apple.com/app/opti-ener"
-              >
-                app store <span aria-hidden="true">↗</span>
-              </a>
-            </li>
-          </ul>
         </article>
 
         <article class="cv-timeline-item space-y-4">
@@ -324,59 +356,88 @@ const projects = [
         <h2 id="projects-heading">selected projects</h2>
       </div>
 
-      <div class="cv-projects grid gap-4 sm:grid-cols-3">
+      <div class="cv-projects">
         {
-          projects.map(({ name, label, href, linkLabel, ariaLabel, printUrl, description, stack }) => (
-            <article class="cv-panel flex min-h-56 flex-col gap-4">
-              <div class="space-y-1">
-                <p class="cv-kicker">{label}</p>
-                <h3 class="display text-lg font-semibold text-[var(--pink-bright)]">{name}</h3>
+          selectedProjects.map((project) => (
+            <article class="cv-panel cv-project">
+              <div class="space-y-3">
+                <div class="space-y-1">
+                  <p class="cv-kicker">{project.kicker}</p>
+                  <h3 class="display text-lg font-semibold text-[var(--pink-bright)]">
+                    {project.href ? (
+                      <a
+                        class="neon-link cv-text-link"
+                        href={project.href}
+                        aria-label={project.ariaLabel}
+                        data-print-url={project.printUrl}
+                      >
+                        {project.title} <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </h3>
+                </div>
+                {project.description && <p class="text-xs leading-6">{project.description}</p>}
+                {project.bullets && (
+                  <ul class="flex flex-wrap gap-2" aria-label={`${project.title} contributions`}>
+                    {project.bullets.map((item) => (
+                      <li class="cv-chip">{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {project.stack && (
+                  <ul class="flex flex-wrap gap-2" aria-label={`${project.title} stack`}>
+                    {project.stack.map((item) => (
+                      <li class="cv-chip">{item}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <p class="text-xs leading-6">{description}</p>
-              <div class="mt-auto space-y-3">
-                <p class="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--pink-dim)]">{stack}</p>
-                <a
-                  class="neon-link text-xs underline underline-offset-4"
-                  href={href}
-                  aria-label={ariaLabel}
-                  data-print-url={printUrl}
-                >
-                  {linkLabel} <span aria-hidden="true">↗</span>
-                </a>
-              </div>
+              {project.quote && (
+                <figure class="cv-project-quote">
+                  <blockquote class="cv-quote">
+                    <p>“{project.quote.text}”</p>
+                  </blockquote>
+                  <figcaption class="cv-project-credit">
+                    <cite class="not-italic text-[var(--pink-bright)]">{project.quote.name}</cite>
+                    <span class="cv-date"> · {project.quote.credit}</span>
+                  </figcaption>
+                </figure>
+              )}
             </article>
           ))
         }
       </div>
-    </section>
 
-    <section class="cv-section" aria-labelledby="recommendations-heading">
-      <div class="cv-section-heading">
-        <span>05</span>
-        <h2 id="recommendations-heading">field reports</h2>
+      <div class="cv-opensource">
+        <p class="cv-kicker">open source & tools</p>
+        <div class="divide-y divide-[var(--pink-soft)] border-y border-[var(--pink-soft)]">
+          {
+            openSource.map(({ name, label, href, linkLabel, ariaLabel, printUrl, description }) => (
+              <div class="grid gap-1 py-3 text-xs sm:grid-cols-[1fr_auto] sm:gap-6">
+                <p>
+                  <span class="text-[var(--pink-bright)]">{name}</span>
+                  <span class="text-[var(--pink-dim)]"> · {label} · {description}</span>
+                </p>
+                <p>
+                  <a
+                    class="neon-link cv-text-link"
+                    href={href}
+                    aria-label={ariaLabel}
+                    data-print-url={printUrl}
+                  >
+                    {linkLabel} <span aria-hidden="true">↗</span>
+                  </a>
+                </p>
+              </div>
+            ))
+          }
+        </div>
       </div>
 
-      <div class="cv-quotes grid gap-5 sm:grid-cols-2">
-        <blockquote class="cv-quote">
-          <p>
-            “He assisted in both AI development and research, helping build smart features across multi-verticals
-            that required switch in thinking at all times. He stayed well-informed on fast moving AI trends, which
-            kept our goals moving forward.”
-          </p>
-          <footer>Mohamad Kinawi · Founder &amp; CEO (client) · 2026</footer>
-        </blockquote>
-        <blockquote class="cv-quote">
-          <p>
-            “…I can honestly say that he is one of the most talented Front-end ReactJS developers I have ever
-            worked with. Tomasz has a deep understanding of ReactJS and other front-end technologies, and he has
-            an amazing ability to take on complex interfaces and turn them into highly functional and intuitive
-            user experiences.”
-          </p>
-          <footer>Rob Eifler · CTO &amp; Co-Founder at Defined (client) · 2023</footer>
-        </blockquote>
-      </div>
-      <p class="mt-5 text-xs text-[var(--pink-dim)]">
-        complete reports available on
+      <p class="cv-reco-link text-xs text-[var(--pink-dim)]">
+        full recommendations on
         <a
           class="neon-link cv-text-link"
           href="https://www.linkedin.com/in/k1eu/"
@@ -389,7 +450,7 @@ const projects = [
 
     <section class="cv-section" aria-labelledby="education-heading">
       <div class="cv-section-heading">
-        <span>06</span>
+        <span>05</span>
         <h2 id="education-heading">education & credentials</h2>
       </div>
 
@@ -550,14 +611,54 @@ const projects = [
     box-shadow: 0 0 10px rgba(0, 245, 255, 0.55);
   }
 
+  .cv-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cv-project {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .cv-project-quote {
+    margin: 0;
+  }
+
+  .cv-project-credit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.15rem 0.35rem;
+    margin-top: 0.65rem;
+  }
+
+  .cv-project-quote cite {
+    font-size: 0.72rem;
+  }
+
+  .cv-opensource {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cv-reco-link {
+    margin-top: 0;
+  }
+
   .cv-quote {
     border-left: 1px solid var(--pink);
     padding: 0.2rem 0 0.2rem 1rem;
     font-size: 0.75rem;
     line-height: 1.75;
+    margin: 0;
   }
 
-  .cv-quote footer {
+  .cv-quote footer,
+  .cv-project-quote figcaption .cv-date {
     margin-top: 0.75rem;
     font-size: 0.62rem;
     line-height: 1.6;
@@ -658,7 +759,7 @@ const projects = [
     }
 
     .cv-page {
-      gap: 1.15rem !important;
+      gap: 1rem !important;
       color: #17343a !important;
     }
 
@@ -724,7 +825,10 @@ const projects = [
     }
 
     .cv-panel,
+    .cv-project,
     .cv-quote,
+    .cv-project-quote,
+    .cv-opensource,
     .cv-stack-group {
       break-inside: avoid;
       page-break-inside: avoid;
@@ -751,13 +855,17 @@ const projects = [
     }
 
     .cv-projects {
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .cv-quotes {
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
+    .cv-project {
+      gap: 0.32rem;
+    }
+
+    .cv-opensource {
+      gap: 0.3rem;
     }
 
     .cv-panel {
@@ -769,7 +877,9 @@ const projects = [
 
     .cv-section-heading,
     .cv-chip,
-    .cv-quote {
+    .cv-quote,
+    .cv-opensource :global(.divide-\[var\(--pink-soft\)\]),
+    .cv-opensource :global(.border-\[var\(--pink-soft\)\]) {
       border-color: #b8d2d6 !important;
     }
 
@@ -778,6 +888,8 @@ const projects = [
     .cv-chip-strong,
     .cv-section-heading > span,
     .cv-quote footer,
+    .cv-project-quote cite,
+    .cv-project-quote figcaption,
     .cv-date,
     .cv-list li::before,
     .cv-page :global(.text-\[var\(--pink-bright\)\]),
@@ -794,6 +906,7 @@ const projects = [
     .cv-kicker,
     .cv-date,
     .cv-quote footer,
+    .cv-project-quote figcaption,
     .cv-page :global([class*="tracking-"]) {
       letter-spacing: 0.05em !important;
     }
@@ -822,8 +935,13 @@ const projects = [
       padding: 0.05rem 0 0.05rem 0.7rem;
     }
 
-    .cv-quote footer {
-      margin-top: 0.4rem;
+    .cv-quote footer,
+    .cv-project-credit {
+      margin-top: 0.28rem;
+    }
+
+    .cv-project-quote cite {
+      font-size: 0.68rem;
     }
 
     .cv-chip {
@@ -870,7 +988,8 @@ const projects = [
       gap: 0.45rem !important;
     }
 
-    .cv-page :global(.mt-5) {
+    .cv-page :global(.mt-5),
+    .cv-reco-link {
       margin-top: 0.45rem !important;
     }
 
